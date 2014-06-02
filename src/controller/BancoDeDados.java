@@ -15,7 +15,7 @@ public class BancoDeDados {
 	private Statement statement = null;
 	private ResultSet resultsetAluno = null;
 	public void conectar(){
-		String servidor = "jdbc:mysql://localhost:3306/cadastro";
+		String servidor = "jdbc:mysql://localhost:3306/oficinadomovimento";
 		String usuario = "root";
 		String senha="";
 		String driver="com.mysql.jdbc.Driver";
@@ -43,12 +43,12 @@ public class BancoDeDados {
 			String query = "SELECT * FROM aluno ORDER by id ";
 			this.resultsetAluno = this.statement.executeQuery(query);
 			//this.statement = this.connection.createStatement();
-			Tratamento.listAluno.clear(); // limpando lista
-			while(this.resultsetAluno.next()){
+			//Tratamento.listAluno.clear(); // limpando lista
+		/*	while(this.resultsetAluno.next()){
 				Aluno aluno = new Aluno(this.resultsetAluno.getString("nome"),this.resultsetAluno.getString("matricula"));
 				aluno.cadastraNotas(this.resultsetAluno.getDouble("nota1"),this.resultsetAluno.getDouble("nota2"),this.resultsetAluno.getDouble("nota3"));
 				Tratamento.listInsereAluno(aluno);	
-			}
+			}*/
 		}catch (Exception e){
 			JOptionPane.showMessageDialog(null,"Ops! Ocorreu um erro : "+e.getMessage());
 		}
